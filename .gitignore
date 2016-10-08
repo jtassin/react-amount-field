@@ -1,19 +1,33 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
-[Oo]bj/ # FlashDevelop obj
-[Bb]in/ # FlashDevelop bin
+# Logs
+logs
+*.log
+dist
+lib
 
-# Other files and folders
-.settings/
+# Runtime data
+pids
+*.pid
+*.seed
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Coverage tools
+lib-cov
+coverage
+coverage.html
+.cover*
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Dependency directory
+node_modules
+
+# Example build directory
+example/dist
+.publish
+
+# Editor and other tmp files
+*.swp
+*.un~
+*.iml
+*.ipr
+*.iws
+*.sublime-*
+.idea/
+*.DS_Store
