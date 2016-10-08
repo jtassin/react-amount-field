@@ -1,0 +1,26 @@
+{
+  "name": "react-opensource-component-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtassin/react-opensource-component-template.git"
+  },
+  "keywords": [
+    "react",
+    "open",
+    "source",
+    "component",
+    "template"
+  ],
+  "author": "Julien TASSIN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jtassin/react-opensource-component-template/issues"
+  },
+  "homepage": "https://github.com/jtassin/react-opensource-component-template#readme"
+}
