@@ -1,13 +1,25 @@
 import React from 'react';
-import Playground  from 'component-playground';
-import MyComponent from '../../src/MyComponent';
+import ReactAmountField from '../../src/ReactAmountField';
 
-export default React.createClass({
+export default class extends React.Component{
+  
+  constructor() {
+    super();
+    this.state = {
+      val: 1337,
+    };
+  }
+  
 	render () {
 		return (
-			<div style={{backgroundColor: 'white'}}>
-				<Playground codeText={"<MyComponent>Children</MyComponent>"} scope={{React: React, MyComponent: MyComponent}}/>
+			<div style={{height: '50px'}}>
+        <div style={{ width: '50%', float: 'left' }}>
+          {this.state.val}
+        </div>
+        <div style={{ width: '50%', float: 'left' }}>
+				  <ReactAmountField onChange={(event) => {this.setState({ val: event.target.value })}} value={this.state.val}><input type='number' /></ReactAmountField>
+        </div>
 			</div>
 		);
 	}
-});
+};

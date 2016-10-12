@@ -20,9 +20,14 @@
 <section class="main-content">
 	<div class="container">
 		<div class="row">
-			<h2>Example 1</h2>
+			<h2>Simple example with an input type number</h2>
 			<div class="col-12">
 				<div class="box-example">
+          <pre>
+             &lt;ReactAmountField onChange={(event) => {this.setState({ val: event.target.value })}} value={this.state.val} &gt;
+              &lt;input type='number' /&gt;
+             &lt;/ReactAmountField&gt;
+          </pre>
 					<div id="example1">
 						<p>
 							To install React, follow the instructions on
@@ -39,9 +44,14 @@
 
 
 		<div class="row">
-			<h2>Example 2</h2>
+			<h2>It also works with material-ui</h2>
 			<div class="col-12">
 				<div class="box-example">
+          <pre>
+             &lt;ReactAmountField onChange={(event) => {this.setState({ val: event.target.value })}} value={this.state.val} &gt;
+              &lt;TextField hintText="I will be turned to an amount" /&gt;
+             &lt;/ReactAmountField&gt;
+          </pre>
 					<div id="example2">
 						<p>
 							To install React, follow the instructions on

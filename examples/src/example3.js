@@ -1,12 +1,12 @@
 import React from 'react';
 import Playground  from 'component-playground';
-import MyComponent from '../../src/MyComponent';
+import ReactAmountField from '../../src/ReactAmountField';
 
 export default React.createClass({
 	render () {
 		return (
 			<div style={{backgroundColor: 'white'}}>
-				<Playground codeText={"<MyComponent>Example3</MyComponent>"} scope={{React: React, MyComponent: MyComponent}}/>
+				<Playground codeText={"<ReactAmountField>Example3</ReactAmountField>"} scope={{React: React, ReactAmountField: ReactAmountField}}/>
 			</div>
 		);
 	}
