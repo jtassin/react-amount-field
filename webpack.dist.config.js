@@ -2,12 +2,12 @@ var webpack = require('webpack');
 var path = require('path');
 
 const config = {
-	entry: "./src/MyComponent.js", 
+	entry: "./src/ReactAmountField.js", 
 	output: {
-		library: 'MyComponent',
+		library: 'ReactAmountField',
 		libraryTarget: 'umd',
 		path: path.join(__dirname, 'dist'),
-		filename: 'MyComponent.min.js',
+		filename: 'ReactAmountField.min.js',
 	},
 	externals: [
 		{

@@ -13,6 +13,3 @@ import Example2 from './example2.js';
 
 ReactDOM.render(<AppContainer><Example2 /></AppContainer>, document.getElementById('example2'));
 
-import Example3 from './example3.js';
-
-ReactDOM.render(<Example3 />, document.getElementById('example3'));
