@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import githubLight from './github-light.css';
 import normalize from './normalize.css';
 import stylesheet from './stylesheet.css';
+import { AppContainer } from 'react-hot-loader';
 
-import Example1 from './example1';
+import Example1 from './example1.js';
 
-ReactDOM.render(<Example1 />, document.getElementById('example1'));
+ReactDOM.render(<AppContainer><Example1 /></AppContainer>, document.getElementById('example1'));
 
-import Example2 from './example2';
+import Example2 from './example2.js';
 
-ReactDOM.render(<Example2 />, document.getElementById('example2'));
+ReactDOM.render(<AppContainer><Example2 /></AppContainer>, document.getElementById('example2'));
 
-import Example3 from './example3';
+import Example3 from './example3.js';
 
 ReactDOM.render(<Example3 />, document.getElementById('example3'));

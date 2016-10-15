@@ -12,8 +12,7 @@
   "bugs": {
     "url": "https://github.com/jtassin/react-amount-field/issues"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.16.0",
     "babel-eslint": "^6.1.2",
@@ -40,7 +39,7 @@
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-hot-loader": "^3.0.0-beta.5",
+    "react-hot-loader": "^3.0.0-beta.6",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   },

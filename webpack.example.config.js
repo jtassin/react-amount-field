@@ -29,7 +29,7 @@ module.exports = {
 			{test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
 			{
 				test: /\.js$/,
-				loaders: ['babel'],
+				loaders: [ 'babel'],
 				exclude: /(node_modules)/
 			}]
 	}
