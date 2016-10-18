@@ -43,14 +43,6 @@ class ReactAmountField extends PureComponent {
   }
 
   render() {
-    let value = null;
-    if (this.props.value) {
-      value = parseInt(this.props.value, 10);
-    }
-    let formattedAmount = null;
-    if (value) {
-      formattedAmount = value / 100;
-    }
     const props = { ...this.props };
     props.value = this.state.unflushedValue;
     props.onChange = this.change.bind(this);
