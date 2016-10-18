@@ -25,7 +25,7 @@ export default class extends React.Component {
           <div style={{ width: '50%', float: 'left' }}>
             <ReactAmountField onChange={(event) => {this.setState({ val: event.target.value })}}
                               value={this.state.val}><TextField
-              hintText="I will be turned to an amount" /></ReactAmountField>
+              hintText="I will be turned to an amount"/></ReactAmountField>
           </div>
         </div>
       </MuiThemeProvider>
