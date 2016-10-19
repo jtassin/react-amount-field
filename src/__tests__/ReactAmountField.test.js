@@ -9,7 +9,7 @@ describe('ReactAmountField', () => {
     const wrapper = shallow(
       <ReactAmountField className="bar"><span></span></ReactAmountField>
     );
-    expect(wrapper.html()).to.equal('<div><span class="bar"></span></div>');
+    expect(wrapper.html()).to.equal('<div><span class="bar" value=""></span></div>');
   });
 
   it('divide the value by 100 and transmit it to the child', () => {
@@ -19,89 +19,129 @@ describe('ReactAmountField', () => {
     expect(wrapper.html()).to.equal('<div><input type="number" value="2.15"/></div>');
   });
 
-  describe('onChange', () => {
-    it('when called on children transmit it to parent with value multiplied by 100', (done) => {
-      const change = (event) => {
-        expect(event.target.value).to.equal(215);
-        done();
-      };
-      const wrapper = shallow(
-        <ReactAmountField value="215" onChange={(value) => { change(value); }}>
-          <input type="number" />
-        </ReactAmountField>
-      );
-      const input = wrapper.find('input');
-      input.simulate('change', { target: { value: '2.15' } });
-    });
+  const HANDLED_EVENTS = { onBlur: 'blur', onChange: 'change', onDrop: 'drop' };
 
-    it('handle null value if onChange', (done) => {
-      const change = (event) => {
-        expect(event.target.value).to.equal(null);
-        done();
-      };
-      const wrapper = shallow(
-        <ReactAmountField value="215" onChange={(value) => { change(value); }}>
-          <input type="number" />
-        </ReactAmountField>
-      );
-      const input = wrapper.find('input');
-      input.simulate('change', { target: { value: null } });
-    });
+  Object.keys(HANDLED_EVENTS).forEach(key => {
+    describe(key, () => {
+      it('when called on children transmit it to parent with value multiplied by 100', (done) => {
+        const change = (event) => {
+          expect(event.target.value).to.equal('215');
+          done();
+        };
+        const props = {
+          value: '215',
+        };
+        props[key] = value => {
+          change(value);
+        };
+        const wrapper = shallow(
+          <ReactAmountField {...props}>
+            <input type="number" />
+          </ReactAmountField>
+        );
+        const input = wrapper.find('input');
+        input.simulate(HANDLED_EVENTS[key], { target: { value: '2.15' } });
+      });
 
-    it('works with input type="text"', (done) => {
-      const change = (event) => {
-        expect(event.target.value).to.equal(215);
-        done();
-      };
-      const wrapper = shallow(
-        <ReactAmountField value="215" onChange={(value) => { change(value); }}>
-          <input type="text" />
-        </ReactAmountField>
-      );
-      const input = wrapper.find('input');
-      input.simulate('change', { target: { value: '2.15' } });
-    });
+      it('handle null value if onBlur', (done) => {
+        const change = (event) => {
+          expect(event.target.value).to.equal(null);
+          done();
+        };
+        const props = {
+          value: '215',
+        };
+        props[key] = value => {
+          change(value);
+        };
+        const wrapper = shallow(
+          <ReactAmountField {...props}>
+            <input type="number" />
+          </ReactAmountField>
+        );
+        const input = wrapper.find('input');
+        input.simulate(HANDLED_EVENTS[key], { target: { value: null } });
+      });
 
-    it('refuses more than 2 decimals', (done) => {
-      const change = (event) => {
-        expect(event.target.value).to.equal(215);
-        done();
-      };
-      const wrapper = shallow(
-        <ReactAmountField value="215" onChange={(value) => { change(value); }}>
-          <input type="text" />
-        </ReactAmountField>
-      );
-      const input = wrapper.find('input');
-      input.simulate('change', { target: { value: '2.1569' } });
-    });
+      it('works with input type="text"', (done) => {
+        const change = (event) => {
+          expect(event.target.value).to.equal('215');
+          done();
+        };
+        const props = {
+          value: '215',
+        };
+        props[key] = value => {
+          change(value);
+        };
+        const wrapper = shallow(
+          <ReactAmountField {...props}>
+            <input type="text" />
+          </ReactAmountField>
+        );
+        const input = wrapper.find('input');
+        input.simulate(HANDLED_EVENTS[key], { target: { value: '2.15' } });
+      });
 
-    it('escape non digit chars', (done) => {
-      const change = (event) => {
-        expect(event.target.value).to.equal(215);
-        done();
-      };
-      const wrapper = shallow(
-        <ReactAmountField value="215" onChange={(value) => { change(value); }}>
-          <input type="text" />
-        </ReactAmountField>
-      );
-      const input = wrapper.find('input');
-      input.simulate('change', { target: { value: 'A2.C1P5M' } });
-    });
+      it('refuses more than 2 decimals', (done) => {
+        const change = (event) => {
+          expect(event.target.value).to.equal('215');
+          done();
+        };
+        const props = {
+          value: '215',
+        };
+        props[key] = value => {
+          change(value);
+        };
+        const wrapper = shallow(
+          <ReactAmountField {...props}>
+            <input type="text" />
+          </ReactAmountField>
+        );
+        const input = wrapper.find('input');
+        input.simulate(HANDLED_EVENTS[key], { target: { value: '2.1569' } });
+      });
 
-    it('treat , like .', (done) => {
-      const change = (event) => {
-        expect(event.target.value).to.equal(215);
-        done();
-      };
-      const wrapper = shallow(
-        <ReactAmountField value="215" onChange={(value) => { change(value); }}>
-          <input type="text" />
-        </ReactAmountField>
-      );
-      const input = wrapper.find('input');
-      input.simulate('change', { target: { value: '2,15' } });
+      it('escape non digit chars', (done) => {
+        const change = (event) => {
+          expect(event.target.value).to.equal('215');
+          done();
+        };
+        const props = {
+          value: '215',
+        };
+        props[key] = value => {
+          change(value);
+        };
+        const wrapper = shallow(
+          <ReactAmountField {...props}>
+            <input type="text" />
+          </ReactAmountField>
+        );
+        const input = wrapper.find('input');
+        input.simulate(HANDLED_EVENTS[key], { target: { value: 'A2.C1P5M' } });
+      });
+
+      it('treat , like .', (done) => {
+        const change = (event) => {
+          expect(event.target.value).to.equal('215');
+          done();
+        };
+        const props = {
+          value: '215',
+        };
+        props[key] = value => {
+          change(value);
+        };
+        const wrapper = shallow(
+          <ReactAmountField {...props}>
+            <input type="text" />
+          </ReactAmountField>
+        );
+        const input = wrapper.find('input');
+        input.simulate(HANDLED_EVENTS[key], { target: { value: '2,15' } });
+      });
     });
   });
 });
