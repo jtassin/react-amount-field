@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 const config = {
-	entry: "./src/ReactAmountField.js", 
+	entry: "./src/index.js", 
 	output: {
 		library: 'ReactAmountField',
 		libraryTarget: 'umd',
