@@ -2,7 +2,7 @@
   "name": "react-amount-field",
   "version": "1.2.3",
   "description": "react-amount-field",
-  "main": "lib/ReactAmountField.js",
+  "main": "lib/index.js",
   "author": "Julien TASSIN",
   "homepage": "https://github.com/jtassin/react-amount-field",
   "repository": {
