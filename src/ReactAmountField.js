@@ -13,39 +13,35 @@ class ReactAmountField extends PureComponent {
   }
   
   static propTypes = {
-    value: PropTypes.number,
+    value: PropTypes.text,
   };
   
-  change(event) {
-    if (this.props.onChange) {
-      let newValue = null;
-      if (event.target.value) {
-        this.setState({unflushedValue: event.target.value.toString()});
-        if (!event.target.value.toString().endsWith('.')) {
-          const oldValue = event.target.value.toString().replace(/[^\d.,]/g, '').replace(',', '.');
-          newValue = parseInt(oldValue * 100, 10);
-          const newEvent = {
-            target: {
-              value: newValue,
-            },
-          };
-          this.props.onChange(newEvent);
+  proxyEvent(target) {
+    return (event) => {
+      if (target) {
+        let newValue = null;
+        if (event.target.value && event.target.value != '') {
+          this.setState({unflushedValue: event.target.value.toString()});
+          if (!event.target.value.toString().endsWith('.')) {
+            const oldValue = event.target.value.toString().replace(/[^\d.,]/g, '').replace(',', '.');
+            newValue = parseInt(oldValue * 100, 10);
+            event.target.value = newValue.toString();
+            target(event);
+          }
+        } else {
+          this.setState({unflushedValue: null});
+          target(event);
         }
-      } else {
-        const newEvent = {
-          target: {
-            value: null,
-          },
-        };
-        this.props.onChange(newEvent);
       }
-    }
+    };
   }
 
   render() {
     const props = { ...this.props };
     props.value = this.state.unflushedValue;
-    props.onChange = this.change.bind(this);
+    props.onChange = this.proxyEvent.bind(this)(this.props.onChange);
+    props.onBlur = this.proxyEvent.bind(this)(this.props.onBlur);
+    props.onDrop = this.proxyEvent.bind(this)(this.props.onDrop);
     delete props.children;
     return <div>{React.cloneElement(this.props.children, { ...props })}</div>;
   }
