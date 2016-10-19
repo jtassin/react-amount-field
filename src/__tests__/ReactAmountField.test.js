@@ -9,7 +9,7 @@ describe('ReactAmountField', () => {
     const wrapper = shallow(
       <ReactAmountField className="bar"><span></span></ReactAmountField>
     );
-    expect(wrapper.html()).to.equal('<div><span class="bar"></span></div>');
+    expect(wrapper.html()).to.equal('<div><span class="bar" value=""></span></div>');
   });
 
   it('divide the value by 100 and transmit it to the child', () => {
@@ -18,8 +18,8 @@ describe('ReactAmountField', () => {
     );
     expect(wrapper.html()).to.equal('<div><input type="number" value="2.15"/></div>');
   });
-  
-  const HANDLED_EVENTS = {onBlur: 'blur', onChange: 'change', onDrop: 'drop'};
+
+  const HANDLED_EVENTS = { onBlur: 'blur', onChange: 'change', onDrop: 'drop' };
 
   Object.keys(HANDLED_EVENTS).forEach(key => {
     describe(key, () => {
@@ -29,7 +29,7 @@ describe('ReactAmountField', () => {
           done();
         };
         const props = {
-          value: '215'
+          value: '215',
         };
         props[key] = value => {
           change(value);
@@ -49,7 +49,7 @@ describe('ReactAmountField', () => {
           done();
         };
         const props = {
-          value: '215'
+          value: '215',
         };
         props[key] = value => {
           change(value);
@@ -69,7 +69,7 @@ describe('ReactAmountField', () => {
           done();
         };
         const props = {
-          value: '215'
+          value: '215',
         };
         props[key] = value => {
           change(value);
@@ -89,7 +89,7 @@ describe('ReactAmountField', () => {
           done();
         };
         const props = {
-          value: '215'
+          value: '215',
         };
         props[key] = value => {
           change(value);
@@ -109,7 +109,7 @@ describe('ReactAmountField', () => {
           done();
         };
         const props = {
-          value: '215'
+          value: '215',
         };
         props[key] = value => {
           change(value);
@@ -129,7 +129,7 @@ describe('ReactAmountField', () => {
           done();
         };
         const props = {
-          value: '215'
+          value: '215',
         };
         props[key] = value => {
           change(value);

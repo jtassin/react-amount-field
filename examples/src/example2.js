@@ -10,12 +10,11 @@ export default class extends React.Component {
   constructor() {
     super();
     this.state = {
-      val: 1337,
+      val: '1337',
     };
   }
 
   render() {
-    console.log(this.state.val);
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div style={{height: '50px'}}>

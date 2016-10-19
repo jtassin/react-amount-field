@@ -1,29 +1,19 @@
-import ReactAmountField from '../../src/ReactAmountField';
-import React from 'react'
+import ReduxFormMaterialUiWrapper from '../../src/ReduxFormMaterialUiWrapper';
+import React, { createElement, PropTypes } from 'react'
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-class Wrapper extends React.Component {
-  render() {
-    console.log(this.props);
-    const props = { ...this.props };
-    return React.cloneElement(<ReactAmountField><input /></ReactAmountField>, { ...props }) ;
-  }
-}
 
-class Form extends React.Component {
+class ExampleForm extends React.Component {
   
-  static propTypes = {
-    handleSubmit: React.PropTypes.func.isRequired
-  }
-  handleSubmit = (values) => {
-    console.log(values);
-  }
-
   render() {
     const {handleSubmit, resolvedValue, resolvedVisited, resolvedTouched, resolvedActive} = this.props;
     return (
-      <div>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <div>
         <div style={{ width: '25%', float: 'left' }}>
           Visited : {resolvedVisited.toString()}
         </div>
@@ -38,10 +28,11 @@ class Form extends React.Component {
         </div>
         <form style={{ width: '100%', float: 'left' }} onSubmit={handleSubmit}>
           <div>
-              <Field name="field" component={Wrapper} type="text" placeholder="My Amount Field"/>
+              <Field name="field" component={ReduxFormMaterialUiWrapper} type="text" placeholder="My Amount Field"/>
           </div>
         </form>
-      </div>
+          </div>
+      </MuiThemeProvider>
     )
   }
 }
@@ -51,31 +42,30 @@ function mapStateToProps(state) {
   let resolvedVisited = false;
   let resolvedTouched = false;
   let resolvedActive = false;
-  if (state.form && state.form.simple && state.form.simple.values) {
-    resolvedValue = state.form.simple && state.form.simple.values.field;
+  if (state.form && state.form.reduxForm && state.form.reduxForm.values) {
+    resolvedValue = state.form.reduxForm && state.form.reduxForm.values.field;
   }
-  if (state.form && state.form.simple && state.form.simple.fields && state.form.simple.fields.field) {
-    if (state.form.simple.fields.field.visited) {
-      resolvedVisited = state.form.simple.fields.field.visited;
+  if (state.form && state.form.reduxForm && state.form.reduxForm.fields && state.form.reduxForm.fields.field) {
+    if (state.form.reduxForm.fields.field.visited) {
+      resolvedVisited = state.form.reduxForm.fields.field.visited;
     }
-    if (state.form.simple.fields.field.touched) {
-      resolvedTouched = state.form.simple.fields.field.touched;
+    if (state.form.reduxForm.fields.field.touched) {
+      resolvedTouched = state.form.reduxForm.fields.field.touched;
     }
-    if (state.form.simple.fields.field.active) {
-      resolvedActive = state.form.simple.fields.field.active;
+    if (state.form.reduxForm.fields.field.active) {
+      resolvedActive = state.form.reduxForm.fields.field.active;
     }
   }
   return {
     resolvedValue,
-    handleSubmit: values => (console.log(values)),
     resolvedVisited,
     resolvedTouched,
     resolvedActive
   }
 }
 
-const DecoratedForm = connect(mapStateToProps)(Form);
+const DecoratedForm = connect(mapStateToProps)(ExampleForm);
 
 export default reduxForm({
-  form: 'simple'  // a unique identifier for this form
+  form: 'reduxForm' 
 })(DecoratedForm)

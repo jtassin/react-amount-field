@@ -5,31 +5,31 @@ class ReactAmountField extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      unflushedValue: null,
+      unflushedValue: '',
     };
-    if (this.props.value) {
+    if (this.props.value && this.props.value !== '') {
       this.state.unflushedValue = this.props.value / 100;
     }
   }
-  
+
   static propTypes = {
     value: PropTypes.text,
   };
-  
+
   proxyEvent(target) {
     return (event) => {
       if (target) {
-        let newValue = null;
-        if (event.target.value && event.target.value != '') {
-          this.setState({unflushedValue: event.target.value.toString()});
-          if (!event.target.value.toString().endsWith('.')) {
-            const oldValue = event.target.value.toString().replace(/[^\d.,]/g, '').replace(',', '.');
-            newValue = parseInt(oldValue * 100, 10);
-            event.target.value = newValue.toString();
-            target(event);
+        const eventValue = event.target.value;
+        if (eventValue && eventValue !== '') {
+          this.setState({ unflushedValue: eventValue.toString() });
+          if (!eventValue.toString().endsWith('.')) {
+            const oldValue = eventValue.toString().replace(/[^\d.,]/g, '').replace(',', '.');
+            const newEvent = event;
+            newEvent.target.value = parseInt(oldValue * 100, 10).toString();
+            target(newEvent);
           }
         } else {
-          this.setState({unflushedValue: null});
+          this.setState({ unflushedValue: '' });
           target(event);
         }
       }
@@ -39,9 +39,9 @@ class ReactAmountField extends PureComponent {
   render() {
     const props = { ...this.props };
     props.value = this.state.unflushedValue;
-    props.onChange = this.proxyEvent.bind(this)(this.props.onChange);
-    props.onBlur = this.proxyEvent.bind(this)(this.props.onBlur);
-    props.onDrop = this.proxyEvent.bind(this)(this.props.onDrop);
+    props.onChange = this.proxyEvent(this.props.onChange);
+    props.onBlur = this.proxyEvent(this.props.onBlur);
+    props.onDrop = this.proxyEvent(this.props.onDrop);
     delete props.children;
     return <div>{React.cloneElement(this.props.children, { ...props })}</div>;
   }

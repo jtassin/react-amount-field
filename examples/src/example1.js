@@ -6,7 +6,7 @@ export default class extends React.Component {
   constructor() {
     super();
     this.state = {
-      val: 1337,
+      val: '1337',
     };
   }
 
