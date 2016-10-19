@@ -10,6 +10,13 @@ const config = {
 		filename: 'ReactAmountField.min.js',
 	},
 	externals: [
+    {
+      'material-ui': {
+        commonjs2: 'material-ui',
+        commonjs: 'material-ui',
+        amd: 'material-ui',
+      },
+    },
 		{
 			react: {
 				root: 'React',
