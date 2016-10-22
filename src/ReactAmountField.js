@@ -1,5 +1,4 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Wrapper from './ReduxFormMaterialUiWrapper';
 
 class ReactAmountField extends PureComponent {
 
