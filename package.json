@@ -1,6 +1,6 @@
 {
   "name": "react-amount-field",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "react-amount-field",
   "main": "lib/index.js",
   "author": "Julien TASSIN",
