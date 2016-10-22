@@ -17,7 +17,8 @@ export default class extends React.Component {
           {this.state.val}
         </div>
         <div style={{ width: '50%', float: 'left' }}>
-          <ReactAmountField onChange={(event) => { this.setState({ val: event.target.value }); }}
+          <ReactAmountField
+            onChange={(event) => { this.setState({ val: event.target.value }); }}
             value={this.state.val}
           ><input type="text" /></ReactAmountField>
         </div>
