@@ -1,16 +1,16 @@
 import ReduxFormMaterialUiWrapper from '../../src/ReduxFormMaterialUiWrapper';
-import React, { createElement, PropTypes } from 'react'
-import {Field, reduxForm} from 'redux-form';
-import {connect} from 'react-redux';
+import React, { createElement, PropTypes } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 
 class ExampleForm extends React.Component {
-  
+
   render() {
-    const {handleSubmit, resolvedValue, resolvedVisited, resolvedTouched, resolvedActive} = this.props;
+    const { handleSubmit, resolvedValue, resolvedVisited, resolvedTouched, resolvedActive } = this.props;
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div>
@@ -28,12 +28,12 @@ class ExampleForm extends React.Component {
         </div>
         <form style={{ width: '100%', float: 'left' }} onSubmit={handleSubmit}>
           <div>
-              <Field name="field" component={ReduxFormMaterialUiWrapper} type="text" placeholder="My Amount Field"/>
+              <Field name="field" component={ReduxFormMaterialUiWrapper} type="text" placeholder="My Amount Field" />
           </div>
         </form>
           </div>
       </MuiThemeProvider>
-    )
+    );
   }
 }
 
@@ -60,12 +60,12 @@ function mapStateToProps(state) {
     resolvedValue,
     resolvedVisited,
     resolvedTouched,
-    resolvedActive
-  }
+    resolvedActive,
+  };
 }
 
 const DecoratedForm = connect(mapStateToProps)(ExampleForm);
 
 export default reduxForm({
-  form: 'reduxForm' 
-})(DecoratedForm)
+  form: 'reduxForm',
+})(DecoratedForm);

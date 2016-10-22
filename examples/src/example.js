@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import githubLight from './github-light.css';
-import normalize from './normalize.css';
-import stylesheet from './stylesheet.css';
 import { AppContainer } from 'react-hot-loader';
 import Example1 from './Example1.js';
 import Example2 from './Example2.js';
 import ReduxFormExample from './ReduxFormExample';
 import { Provider } from 'react-redux';
 import store from './store';
+
+require('./github-light.css');
+require('./normalize.css');
+require('./stylesheet.css');
 
 ReactDOM.render(<AppContainer><Example2 /></AppContainer>, document.getElementById('example2'));
 
