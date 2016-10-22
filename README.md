@@ -1,15 +1,15 @@
 # react-opensource-component-template
 [![npm version](https://badge.fury.io/js/react-amount-field.svg)](https://badge.fury.io/js/react-amount-field) 
 [![Build Status](https://travis-ci.org/jtassin/react-amount-field.svg?branch=master)](https://travis-ci.org/jtassin/react-amount-field)
-[![codecov](https://codecov.io/gh/jtassin/react-opensource-component-template/branch/master/graph/badge.svg)](https://codecov.io/gh/jtassin/react-opensource-component-template)
-[![Code Climate](https://codeclimate.com/github/jtassin/react-opensource-component-template/badges/gpa.svg)](https://codeclimate.com/github/jtassin/react-opensource-component-template)
+[![codecov](https://codecov.io/gh/jtassin/react-amount-field/branch/master/graph/badge.svg)](https://codecov.io/gh/jtassin/react-amount-field)
+[![Code Climate](https://codeclimate.com/github/jtassin/react-amount-field/badges/gpa.svg)](https://codeclimate.com/github/jtassin/react-amount-field)
 
-React component for displaying formatted amount with currency
+React component for displaying input field handling currencies
 
 
 ## Demo & Examples
 
-Live demo: [jtassin.github.io/react-opensource-component-template](http://jtassin.github.io/react-opensource-component-template/)
+Live demo: [jtassin.github.io/react-amount-field](http://jtassin.github.io/react-amount-field/)
 
 To build the examples locally, run:
 
@@ -23,12 +23,12 @@ Then open [`localhost:3000`](http://localhost:3000) in a browser.
 
 ## Installation
 
-The easiest way to use react-opensource-component-template is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
+The easiest way to use react-amount-field is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
 
-You can also use the standalone build by including `dist/ReactFormattedAmount.min.js` i n your page. If you use this, make sure you have already included React, and it is available as a global variable.
+You can also use the standalone build by including `dist/ReactAmountField.min.min.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable. If you want to use the redux-form/material-ui connector, you also need to include material-ui in your dependencies.
 
 ```
-npm install react-opensource-component-template --save
+npm install react-amount-field --save
 ```
 
 
@@ -37,9 +37,9 @@ npm install react-opensource-component-template --save
 One installed, just require and use the component:
 ```javascript
 import React from `react`;
-import MyComponent from 'react-opensource-component-template';
+import AmountField from 'react-amount-field';
 
-React.render(<MyComponent>Replace with real example</MyComponent>, document.querySelector('#main'));
+React.render(<AmountField><input type="text" /></AmountField>, document.querySelector('#main'));
 ```
 
 
