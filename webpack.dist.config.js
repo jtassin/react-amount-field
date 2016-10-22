@@ -11,10 +11,10 @@ const config = {
 	},
 	externals: [
     {
-      'material-ui': {
-        commonjs2: 'material-ui',
-        commonjs: 'material-ui',
-        amd: 'material-ui',
+      'material-ui/TextField': {
+        commonjs2: 'material-ui/TextField',
+        commonjs: 'material-ui/TextField',
+        amd: 'material-ui/TextField',
       },
     },
 		{
