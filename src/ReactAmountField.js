@@ -14,7 +14,7 @@ class ReactAmountField extends PureComponent {
   }
 
   static propTypes = {
-    value: PropTypes.text,
+    value: PropTypes.string,
   };
 
   proxyEvent(target) {
