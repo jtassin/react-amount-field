@@ -1,6 +1,6 @@
 # react-opensource-component-template
-[![npm version](https://badge.fury.io/js/react-opensource-component-template.svg)](https://badge.fury.io/js/react-opensource-component-template) 
-[![Build Status](https://travis-ci.org/jtassin/react-opensource-component-template.svg?branch=master)](https://travis-ci.org/jtassin/react-opensource-component-template)
+[![npm version](https://badge.fury.io/js/react-amount-field.svg)](https://badge.fury.io/js/react-amount-field) 
+[![Build Status](https://travis-ci.org/jtassin/react-amount-field.svg?branch=master)](https://travis-ci.org/jtassin/react-amount-field)
 [![codecov](https://codecov.io/gh/jtassin/react-opensource-component-template/branch/master/graph/badge.svg)](https://codecov.io/gh/jtassin/react-opensource-component-template)
 [![Code Climate](https://codeclimate.com/github/jtassin/react-opensource-component-template/badges/gpa.svg)](https://codeclimate.com/github/jtassin/react-opensource-component-template)
 
