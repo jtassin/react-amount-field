@@ -7,6 +7,10 @@ import ReduxFormExample from './ReduxFormExample';
 import { Provider } from 'react-redux';
 import store from './store';
 
+const RequiredExample1 = require('./Example1').default;
+const RequiredExample2 = require('./Example2.js').default;
+const RequiredReduxFormExample = require('./ReduxFormExample').default;
+
 require('./github-light.css');
 require('./normalize.css');
 require('./stylesheet.css');
@@ -43,10 +47,9 @@ if (module.hot) {
   module.hot.accept('./Example1', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./Example1').default;
     ReactDOM.render(
       <AppContainer>
-        <NextApp />
+        <RequiredExample1 />
       </AppContainer>,
       example1El
     );
@@ -55,10 +58,9 @@ if (module.hot) {
   module.hot.accept('./ReduxFormExample', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./ReduxFormExample').default;
     ReactDOM.render(
       <AppContainer>
-        <NextApp />
+        <RequiredExample2 />
       </AppContainer>,
       example1El
     );
@@ -67,10 +69,9 @@ if (module.hot) {
   module.hot.accept('./Example2', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./Example2').default;
     ReactDOM.render(
       <AppContainer>
-        <NextApp />
+        <RequiredReduxFormExample />
       </AppContainer>,
       example2El
     );

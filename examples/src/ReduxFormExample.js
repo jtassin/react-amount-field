@@ -11,7 +11,7 @@ class ExampleForm extends React.PureComponent {
 
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
-    resolvedValue: PropTypes.bool.isRequired,
+    resolvedValue: PropTypes.string,
     resolvedVisited: PropTypes.bool.isRequired,
     resolvedTouched: PropTypes.bool.isRequired,
     resolvedActive: PropTypes.bool.isRequired,
