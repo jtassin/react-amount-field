@@ -3,6 +3,13 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import ReactAmountField from '../ReactAmountField';
 
+function createChange(done, value) {
+  return (event) => {
+    expect(event.target.value).to.equal(value);
+    done();
+  };
+}
+
 /* eslint-disable no-undef */
 describe('ReactAmountField', () => {
   it('transmit all properties to children', () => {
@@ -38,15 +45,11 @@ describe('ReactAmountField', () => {
   Object.keys(HANDLED_EVENTS).forEach(key => {
     describe(key, () => {
       it('when called on children transmit it to parent with value multiplied by 100', (done) => {
-        const change = (event) => {
-          expect(event.target.value).to.equal('215');
-          done();
-        };
         const props = {
           value: '215',
         };
         props[key] = value => {
-          change(value);
+          createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
@@ -57,16 +60,12 @@ describe('ReactAmountField', () => {
         input.simulate(HANDLED_EVENTS[key], { target: { value: '2.15' } });
       });
 
-      it('handle null value if onBlur', (done) => {
-        const change = (event) => {
-          expect(event.target.value).to.equal(null);
-          done();
-        };
+      it('handle null value', (done) => {
         const props = {
           value: '215',
         };
         props[key] = value => {
-          change(value);
+          createChange(done, null)(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
@@ -78,15 +77,11 @@ describe('ReactAmountField', () => {
       });
 
       it('works with input type="text"', (done) => {
-        const change = (event) => {
-          expect(event.target.value).to.equal('215');
-          done();
-        };
         const props = {
           value: '215',
         };
         props[key] = value => {
-          change(value);
+          createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
@@ -98,15 +93,11 @@ describe('ReactAmountField', () => {
       });
 
       it('refuses more than 2 decimals', (done) => {
-        const change = (event) => {
-          expect(event.target.value).to.equal('215');
-          done();
-        };
         const props = {
           value: '215',
         };
         props[key] = value => {
-          change(value);
+          createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
@@ -118,15 +109,11 @@ describe('ReactAmountField', () => {
       });
 
       it('escape non digit chars', (done) => {
-        const change = (event) => {
-          expect(event.target.value).to.equal('215');
-          done();
-        };
         const props = {
           value: '215',
         };
         props[key] = value => {
-          change(value);
+          createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
@@ -138,15 +125,11 @@ describe('ReactAmountField', () => {
       });
 
       it('treat , like .', (done) => {
-        const change = (event) => {
-          expect(event.target.value).to.equal('215');
-          done();
-        };
         const props = {
           value: '215',
         };
         props[key] = value => {
-          change(value);
+          createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
@@ -159,4 +142,3 @@ describe('ReactAmountField', () => {
     });
   });
 });
-

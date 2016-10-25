@@ -50,4 +50,3 @@ class ReactAmountField extends PureComponent {
 }
 
 export default ReactAmountField;
-
