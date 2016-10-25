@@ -12,6 +12,20 @@ describe('ReactAmountField', () => {
     expect(wrapper.html()).to.equal('<div><span class="bar" value=""></span></div>');
   });
 
+  it('handle value equals to 0 (integer)', () => {
+    const wrapper = shallow(
+      <ReactAmountField className="bar" value={0}><span></span></ReactAmountField>
+    );
+    expect(wrapper.html()).to.equal('<div><span class="bar" value="0"></span></div>');
+  });
+
+  it('handle value equals to 0 (string)', () => {
+    const wrapper = shallow(
+      <ReactAmountField className="bar" value="0"><span></span></ReactAmountField>
+    );
+    expect(wrapper.html()).to.equal('<div><span class="bar" value="0"></span></div>');
+  });
+
   it('divide the value by 100 and transmit it to the child', () => {
     const wrapper = shallow(
       <ReactAmountField value="215"><input type="number" /></ReactAmountField>

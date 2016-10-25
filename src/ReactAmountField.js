@@ -7,7 +7,9 @@ class ReactAmountField extends PureComponent {
     this.state = {
       unflushedValue: '',
     };
-    if (this.props.value && this.props.value !== '') {
+    if (this.props.value === 0) {
+      this.state.unflushedValue = 0;
+    } else if (this.props.value && this.props.value !== '') {
       this.state.unflushedValue = this.props.value / 100;
     }
   }
