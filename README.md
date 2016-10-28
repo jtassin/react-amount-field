@@ -1,10 +1,11 @@
-# react-opensource-component-template
+# react-amount-field
 [![npm version](https://badge.fury.io/js/react-amount-field.svg)](https://badge.fury.io/js/react-amount-field) 
 [![Build Status](https://travis-ci.org/jtassin/react-amount-field.svg?branch=master)](https://travis-ci.org/jtassin/react-amount-field)
 [![codecov](https://codecov.io/gh/jtassin/react-amount-field/branch/master/graph/badge.svg)](https://codecov.io/gh/jtassin/react-amount-field)
 [![Code Climate](https://codeclimate.com/github/jtassin/react-amount-field/badges/gpa.svg)](https://codeclimate.com/github/jtassin/react-amount-field)
 
-React component for displaying input field handling currencies
+React component for displaying input field transforming decimal value to cent value.
+It will by example transform 3.56 to 356.
 
 
 ## Demo & Examples
