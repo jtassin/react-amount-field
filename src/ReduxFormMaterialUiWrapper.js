@@ -9,6 +9,6 @@ export default class extends React.PureComponent {
 
   render() {
     const props = { ...this.props.input };
-    return <ReactAmountField {...props}><TextField /></ReactAmountField>;
+    return <ReactAmountField id={this.props.id} {...props}><TextField /></ReactAmountField>;
   }
 }

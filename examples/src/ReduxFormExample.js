@@ -44,6 +44,7 @@ class ExampleForm extends React.PureComponent {
             <div>
               <Field
                 name="field"
+                id="redux-form-id"
                 component={ReduxFormMaterialUiWrapper}
                 type="text"
                 placeholder="My Amount Field"
