@@ -46,11 +46,9 @@ React.render(<AmountField><input type="text" /></AmountField>, document.querySel
 
 ### Properties
 
-__PROPERTIES__
-
-### Notes
-
-__ADDITIONAL USAGE NOTES__
+| Props        | Options           | Default  | Description |
+| ------------- |-------------| -----| -------- |
+| value | String/Number | null | The value of the field in cents |
 
 
 ## Development (`src`, `lib` and the build process)
