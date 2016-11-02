@@ -15,9 +15,9 @@ class ReactAmountField extends PureComponent {
   }
 
   static propTypes = {
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
     ]),
   };
 
