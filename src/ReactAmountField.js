@@ -15,7 +15,10 @@ class ReactAmountField extends PureComponent {
   }
 
   static propTypes = {
-    value: PropTypes.string,
+    value: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+    ]),
   };
 
   proxyEvent(target) {

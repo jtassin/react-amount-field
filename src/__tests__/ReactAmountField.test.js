@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import sinon from 'sinon'
 import ReactAmountField from '../ReactAmountField';
 
 function createChange(done, value) {
@@ -12,6 +13,31 @@ function createChange(done, value) {
 
 /* eslint-disable no-undef */
 describe('ReactAmountField', () => {
+
+  // following lines serve to detect bad proptype
+  
+  /* eslint-disable no-undef */
+  before(() => {
+    sinon.stub(console, 'error', (warning) => { throw new Error(warning) })
+  });
+
+  /* eslint-disable no-undef */
+  after(() => { console.error.restore() });
+  
+  it('accept number value', () => {
+    const wrapper = shallow(
+      <ReactAmountField className="bar" value={1337}><span></span></ReactAmountField>
+    );
+    expect(wrapper.html()).to.equal('<div><span class="bar" value="13.37"></span></div>');
+  });
+
+  it('accept string value', () => {
+    const wrapper = shallow(
+      <ReactAmountField className="bar" value={'1337'}><span></span></ReactAmountField>
+    );
+    expect(wrapper.html()).to.equal('<div><span class="bar" value="13.37"></span></div>');
+  });
+  
   it('transmit all properties to children', () => {
     const wrapper = shallow(
       <ReactAmountField className="bar"><span></span></ReactAmountField>
