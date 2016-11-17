@@ -3,10 +3,14 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import ReactAmountField from './ReactAmountField';
 
-const render = props => <ReactAmountField id={props.id} {...props}><TextField /></ReactAmountField>;
+const render = (props) => {
+  const inputProps = { ...props.input };
+  return <ReactAmountField id={props.id} {...inputProps}><TextField /></ReactAmountField>;
+}
 
 render.propTypes = {
   id: React.PropTypes.string,
+  input: React.PropTypes.object.isRequired,
 };
 
 export default render;

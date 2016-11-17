@@ -10,7 +10,6 @@ class ReactAmountField extends PureComponent {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onDrop: PropTypes.func,
-    children: PropTypes.elements,
   };
 
   constructor(props) {
