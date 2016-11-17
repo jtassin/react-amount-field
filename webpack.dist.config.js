@@ -2,12 +2,12 @@ var webpack = require('webpack');
 var path = require('path');
 
 const config = {
-	entry: "./src/index.js", 
+	entry: "./src/index", 
 	output: {
 		library: 'ReactAmountField',
 		libraryTarget: 'umd',
 		path: path.join(__dirname, 'dist'),
-		filename: 'ReactAmountField.min.jsx',
+		filename: 'ReactAmountField.min.js',
 	},
 	externals: [
     {
@@ -44,7 +44,7 @@ const config = {
 	module: {
 		loaders: [
 			{
-				test: /\.js$/,
+				test: /\.jsx?$/,
 				exclude: /(node_modules)/,
 				loader: 'babel',
 			}

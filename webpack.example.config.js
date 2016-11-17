@@ -13,24 +13,24 @@ if (DEBUG) {
 }
 
 module.exports = {
-	devtool: 'eval',
-	entry: entries,
-	output: {
-		path: path.join(__dirname, 'dist/examples'),
-		filename: '[name].js',
-	},
-	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-		new HtmlWebpackPlugin({template: 'examples/src/index.html'}),
-		new ExtractTextPlugin("[name].css")
-	],
-	module: {
-		loaders: [
-			{test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
-			{
-				test: /\.js$/,
-				loaders: [ 'babel'],
-				exclude: /(node_modules)/
-			}]
-	}
+  devtool: 'eval',
+  entry: entries,
+  output: {
+    path: path.join(__dirname, 'dist/examples'),
+    filename: '[name].js',
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({template: 'examples/src/index.html'}),
+    new ExtractTextPlugin("[name].css")
+  ],
+  module: {
+    loaders: [
+      {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        exclude: /(node_modules)/
+      }]
+  }
 };
