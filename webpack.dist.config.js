@@ -7,7 +7,7 @@ const config = {
 		library: 'ReactAmountField',
 		libraryTarget: 'umd',
 		path: path.join(__dirname, 'dist'),
-		filename: 'ReactAmountField.min.js',
+		filename: 'ReactAmountField.min.jsx',
 	},
 	externals: [
     {
