@@ -25,61 +25,61 @@ describe('ReactAmountField', () => {
 
   it('accept number value', () => {
     const wrapper = shallow(
-      <ReactAmountField className="bar" value={1337}><span></span></ReactAmountField>
+      <ReactAmountField className="bar" value={1337}><span /></ReactAmountField>,
     );
     expect(wrapper.html()).to.equal('<div><span class="bar" value="13.37"></span></div>');
   });
 
   it('accept string value', () => {
     const wrapper = shallow(
-      <ReactAmountField className="bar" value={'1337'}><span></span></ReactAmountField>
+      <ReactAmountField className="bar" value={'1337'}><span /></ReactAmountField>,
     );
     expect(wrapper.html()).to.equal('<div><span class="bar" value="13.37"></span></div>');
   });
 
   it('transmit all properties to children', () => {
     const wrapper = shallow(
-      <ReactAmountField className="bar"><span></span></ReactAmountField>
+      <ReactAmountField className="bar"><span /></ReactAmountField>,
     );
     expect(wrapper.html()).to.equal('<div><span class="bar" value=""></span></div>');
   });
 
   it('handle value equals to 0 (integer)', () => {
     const wrapper = shallow(
-      <ReactAmountField className="bar" value={0}><span></span></ReactAmountField>
+      <ReactAmountField className="bar" value={0}><span /></ReactAmountField>,
     );
     expect(wrapper.html()).to.equal('<div><span class="bar" value="0"></span></div>');
   });
 
   it('handle value equals to 0 (string)', () => {
     const wrapper = shallow(
-      <ReactAmountField className="bar" value="0"><span></span></ReactAmountField>
+      <ReactAmountField className="bar" value="0"><span /></ReactAmountField>,
     );
     expect(wrapper.html()).to.equal('<div><span class="bar" value="0"></span></div>');
   });
 
   it('divide the value by 100 and transmit it to the child', () => {
     const wrapper = shallow(
-      <ReactAmountField value="215"><input type="number" /></ReactAmountField>
+      <ReactAmountField value="215"><input type="number" /></ReactAmountField>,
     );
     expect(wrapper.html()).to.equal('<div><input type="number" value="2.15"/></div>');
   });
 
   const HANDLED_EVENTS = { onBlur: 'blur', onChange: 'change', onDrop: 'drop' };
 
-  Object.keys(HANDLED_EVENTS).forEach(key => {
+  Object.keys(HANDLED_EVENTS).forEach((key) => {
     describe(key, () => {
       it('when called on children transmit it to parent with value multiplied by 100', (done) => {
         const props = {
           value: '215',
         };
-        props[key] = value => {
+        props[key] = (value) => {
           createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
             <input type="number" />
-          </ReactAmountField>
+          </ReactAmountField>,
         );
         const input = wrapper.find('input');
         input.simulate(HANDLED_EVENTS[key], { target: { value: '2.15' } });
@@ -89,13 +89,13 @@ describe('ReactAmountField', () => {
         const props = {
           value: '215',
         };
-        props[key] = value => {
+        props[key] = (value) => {
           createChange(done, null)(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
             <input type="number" />
-          </ReactAmountField>
+          </ReactAmountField>,
         );
         const input = wrapper.find('input');
         input.simulate(HANDLED_EVENTS[key], { target: { value: null } });
@@ -105,13 +105,13 @@ describe('ReactAmountField', () => {
         const props = {
           value: '215',
         };
-        props[key] = value => {
+        props[key] = (value) => {
           createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
             <input type="text" />
-          </ReactAmountField>
+          </ReactAmountField>,
         );
         const input = wrapper.find('input');
         input.simulate(HANDLED_EVENTS[key], { target: { value: '2.15' } });
@@ -121,13 +121,13 @@ describe('ReactAmountField', () => {
         const props = {
           value: '215',
         };
-        props[key] = value => {
+        props[key] = (value) => {
           createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
             <input type="text" />
-          </ReactAmountField>
+          </ReactAmountField>,
         );
         const input = wrapper.find('input');
         input.simulate(HANDLED_EVENTS[key], { target: { value: '2.1569' } });
@@ -137,13 +137,13 @@ describe('ReactAmountField', () => {
         const props = {
           value: '215',
         };
-        props[key] = value => {
+        props[key] = (value) => {
           createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
             <input type="text" />
-          </ReactAmountField>
+          </ReactAmountField>,
         );
         const input = wrapper.find('input');
         input.simulate(HANDLED_EVENTS[key], { target: { value: 'A2.C1P5M' } });
@@ -153,13 +153,13 @@ describe('ReactAmountField', () => {
         const props = {
           value: '215',
         };
-        props[key] = value => {
+        props[key] = (value) => {
           createChange(done, '215')(value);
         };
         const wrapper = shallow(
           <ReactAmountField {...props}>
             <input type="text" />
-          </ReactAmountField>
+          </ReactAmountField>,
         );
         const input = wrapper.find('input');
         input.simulate(HANDLED_EVENTS[key], { target: { value: '2,15' } });

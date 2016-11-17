@@ -1,61 +1,58 @@
-import ReduxFormMaterialUiWrapper from '../../src/ReduxFormMaterialUiWrapper';
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import ReduxFormMaterialUiWrapper from '../../src/ReduxFormMaterialUiWrapper';
 
 
-class ExampleForm extends React.PureComponent {
-
-  static propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
-    resolvedValue: PropTypes.string,
-    resolvedVisited: PropTypes.bool.isRequired,
-    resolvedTouched: PropTypes.bool.isRequired,
-    resolvedActive: PropTypes.bool.isRequired,
-  }
-
-  render() {
-    const {
+export const ExampleForm = function render(props) {
+  const {
       handleSubmit,
       resolvedValue,
       resolvedVisited,
       resolvedTouched,
       resolvedActive,
-    } = this.props;
-    return (
-      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <div>
-          <div style={{ width: '25%', float: 'left' }}>
+    } = props;
+  return (
+    <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+      <div>
+        <div style={{ width: '25%', float: 'left' }}>
             Visited : {resolvedVisited.toString()}
-          </div>
-          <div style={{ width: '25%', float: 'left' }}>
-            Touched : {resolvedTouched.toString()}
-          </div>
-          <div style={{ width: '25%', float: 'left' }}>
-            Value : {resolvedValue}
-          </div>
-          <div style={{ width: '25%', float: 'left' }}>
-            Active : {resolvedActive.toString()}
-          </div>
-          <form style={{ width: '100%', float: 'left' }} onSubmit={handleSubmit}>
-            <div>
-              <Field
-                name="field"
-                id="redux-form-id"
-                component={ReduxFormMaterialUiWrapper}
-                type="text"
-                placeholder="My Amount Field"
-              />
-            </div>
-          </form>
         </div>
-      </MuiThemeProvider>
-    );
-  }
-}
+        <div style={{ width: '25%', float: 'left' }}>
+            Touched : {resolvedTouched.toString()}
+        </div>
+        <div style={{ width: '25%', float: 'left' }}>
+            Value : {resolvedValue}
+        </div>
+        <div style={{ width: '25%', float: 'left' }}>
+            Active : {resolvedActive.toString()}
+        </div>
+        <form style={{ width: '100%', float: 'left' }} onSubmit={handleSubmit}>
+          <div>
+            <Field
+              name="field"
+              id="redux-form-id"
+              component={ReduxFormMaterialUiWrapper}
+              type="text"
+              placeholder="My Amount Field"
+            />
+          </div>
+        </form>
+      </div>
+    </MuiThemeProvider>
+  );
+};
+
+ExampleForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  resolvedValue: PropTypes.string,
+  resolvedVisited: PropTypes.bool.isRequired,
+  resolvedTouched: PropTypes.bool.isRequired,
+  resolvedActive: PropTypes.bool.isRequired,
+};
 
 function mapStateToProps(state) {
   let resolvedValue = null;

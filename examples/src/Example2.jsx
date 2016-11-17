@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactAmountField from '../../src/ReactAmountField';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import ReactAmountField from '../../src/ReactAmountField';
 
 export default class extends React.Component {
 

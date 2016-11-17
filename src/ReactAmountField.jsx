@@ -2,6 +2,17 @@ import React, { PropTypes, PureComponent } from 'react';
 
 class ReactAmountField extends PureComponent {
 
+  static propTypes = {
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onDrop: PropTypes.func,
+    children: PropTypes.elements,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,13 +24,6 @@ class ReactAmountField extends PureComponent {
       this.state.unflushedValue = this.props.value / 100;
     }
   }
-
-  static propTypes = {
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-  };
 
   proxyEvent(target) {
     return (event) => {

@@ -1,12 +1,12 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import ReduxFormMaterialUiWrapper from '../ReduxFormMaterialUiWrapper';
-import ReactAmountField from '../ReactAmountField';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import ReactAmountField from '../ReactAmountField';
+import ReduxFormMaterialUiWrapper from '../ReduxFormMaterialUiWrapper';
 
 /* eslint-disable no-undef */
 describe('ReduxFormMaterialUiWrapper', () => {
