@@ -12,15 +12,17 @@ if (DEBUG) {
   entries.unshift('webpack/hot/only-dev-server');
 }
 
-module.exports = {
+var config = {
   devtool: 'eval',
   entry: entries,
   output: {
     path: path.join(__dirname, 'dist/examples'),
     filename: '[name].js',
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({template: 'examples/src/index.html'}),
     new ExtractTextPlugin("[name].css")
   ],
@@ -29,8 +31,15 @@ module.exports = {
       {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
+        loader: 'babel-loader',
         exclude: /(node_modules)/
       }]
   }
 };
+
+if (DEBUG) {
+  config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
+}
+
+
+module.exports = config;

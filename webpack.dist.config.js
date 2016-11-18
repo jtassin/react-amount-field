@@ -2,13 +2,16 @@ var webpack = require('webpack');
 var path = require('path');
 
 const config = {
-	entry: "./lib/index", 
+	entry: "./src/index", 
 	output: {
 		library: 'ReactAmountField',
 		libraryTarget: 'umd',
 		path: path.join(__dirname, 'dist'),
 		filename: 'ReactAmountField.min.js',
 	},
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
 	externals: [
     {
       'material-ui/TextField': {
