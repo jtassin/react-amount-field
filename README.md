@@ -26,7 +26,7 @@ Then open [`localhost:3000`](http://localhost:3000) in a browser.
 
 The easiest way to use react-amount-field is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
 
-You can also use the standalone build by including `dist/ReactAmountField.min.min.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable. If you want to use the redux-form/material-ui connector, you also need to include material-ui in your dependencies.
+You can also use the standalone build by including `dist/ReactAmountField.min.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable. If you want to use the redux-form/material-ui connector, you also need to include material-ui in your dependencies.
 
 ```
 npm install react-amount-field --save
@@ -38,9 +38,10 @@ npm install react-amount-field --save
 One installed, just require and use the component:
 ```javascript
 import React from `react`;
+import ReactDOM from `react-dom`;
 import AmountField from 'react-amount-field';
 
-React.render(<AmountField><input type="text" /></AmountField>, document.querySelector('#main'));
+ReactDOM.render(<AmountField value="1337"><input type="text" /></AmountField>, document.querySelector('#main'));
 ```
 
 
