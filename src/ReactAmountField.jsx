@@ -1,4 +1,5 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 class ReactAmountField extends PureComponent {
 
@@ -7,6 +8,7 @@ class ReactAmountField extends PureComponent {
       PropTypes.string,
       PropTypes.number,
     ]),
+    children: PropTypes.node,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onDrop: PropTypes.func,
