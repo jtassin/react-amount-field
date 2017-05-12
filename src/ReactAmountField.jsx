@@ -3,17 +3,6 @@ import PropTypes from 'prop-types';
 
 class ReactAmountField extends PureComponent {
 
-  static propTypes = {
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-    children: PropTypes.node,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onDrop: PropTypes.func,
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -56,5 +45,16 @@ class ReactAmountField extends PureComponent {
     return <div>{React.cloneElement(this.props.children, { ...props })}</div>;
   }
 }
+
+ReactAmountField.propTypes = {
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  children: PropTypes.node,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onDrop: PropTypes.func,
+};
 
 export default ReactAmountField;
