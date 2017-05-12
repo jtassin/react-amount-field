@@ -15,12 +15,6 @@
   "dependencies": {
     "prop-types": "^15.5.10"
   },
-  "nyc": {
-    "exclude": [
-      "**/*.test.jsx",
-      "node_modules"
-    ]
-  },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^6.1.2",
@@ -46,7 +40,7 @@
     "mocha": "^3.2.0",
     "nyc": "^8.4.0",
     "raw-loader": "^0.5.1",
-    "react": "^15.4.0",
+    "react": "^15.5.4",
     "react-addons-test-utils": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-hot-loader": "^3.0.0-beta.6",
@@ -69,7 +63,8 @@
     "react": "global:React"
   },
   "scripts": {
-    "coverage": "nyc npm test && nyc report --require babel-core/register --require babel-polyfill mocha \"src/**/*.test.jsx\" --reporter=text-lcov > coverage.lcov  && codecov",
+    "coverage:codecov": "npm run coverage && nyc report --require babel-core/register --require babel-polyfill mocha \"src/**/*.test.jsx\" --reporter=text-lcov > coverage.lcov  && codecov",
+    "coverage": "nyc --extension .jsx npm test",
     "build": "webpack -p --config webpack.dist.config.js && babel src --out-dir lib --ignore spec.js,test.jsx,test.js",
     "build:ghpages": "webpack -p --config webpack.example.config.js --release",
     "lint": "eslint --ext .jsx ./src ./examples/src",
