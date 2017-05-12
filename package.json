@@ -15,6 +15,12 @@
   "dependencies": {
     "prop-types": "^15.5.10"
   },
+  "nyc": {
+    "exclude": [
+      "**/*.test.jsx",
+      "node_modules"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^6.1.2",
@@ -79,7 +85,7 @@
   "keywords": [
     "react",
     "react-component",
-    "opensoource",
-    "template"
+    "amount",
+    "material-ui"
   ]
 }
