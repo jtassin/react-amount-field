@@ -7,8 +7,12 @@ import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import ReactAmountField from '../ReactAmountField';
 import ReduxFormMaterialUiWrapper from '../ReduxFormMaterialUiWrapper';
+
+configure({ adapter: new Adapter() });
 
 /* eslint-disable no-undef */
 describe('ReduxFormMaterialUiWrapper', () => {
