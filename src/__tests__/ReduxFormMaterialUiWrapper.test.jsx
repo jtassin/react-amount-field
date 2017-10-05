@@ -12,7 +12,6 @@ import ReduxFormMaterialUiWrapper from '../ReduxFormMaterialUiWrapper';
 
 /* eslint-disable no-undef */
 describe('ReduxFormMaterialUiWrapper', () => {
-
   // following lines serve to detect bad proptype or any react warning
 
   /* eslint-disable no-undef, no-console */
@@ -25,7 +24,7 @@ describe('ReduxFormMaterialUiWrapper', () => {
 
   it('is a wrapper for a reduxForm compatible of the material-ui component', () => {
     const muiTheme = getMuiTheme(
-      Object.assign({userAgent: "fakeUserAgent"}, lightBaseTheme)
+      Object.assign({ userAgent: 'fakeUserAgent' }, lightBaseTheme),
     );
     const CustomProvider = ({ children }) => (
       <MuiThemeProvider muiTheme={muiTheme}>

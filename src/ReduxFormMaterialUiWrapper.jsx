@@ -6,7 +6,6 @@ import ReactAmountField from './ReactAmountField';
 
 const render = (props) => {
   const inputProps = { ...props.input };
-  console.log(inputProps);
   return <ReactAmountField id={props.id} {...inputProps}><TextField /></ReactAmountField>;
 };
 
