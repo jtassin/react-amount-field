@@ -13,6 +13,7 @@
     "url": "https://github.com/jtassin/react-amount-field/issues"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.18.2",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.7",
