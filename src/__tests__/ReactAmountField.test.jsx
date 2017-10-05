@@ -2,7 +2,11 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import ReactAmountField from '../ReactAmountField';
+
+configure({ adapter: new Adapter() });
 
 function createChange(done, value) {
   return (event) => {
