@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import TextField from 'material-ui/TextField';
@@ -20,7 +21,7 @@ describe('ReduxFormMaterialUiWrapper', () => {
       </MuiThemeProvider>
     );
     CustomProvider.propTypes = {
-      children: React.PropTypes.element.isRequired,
+      children: PropTypes.element.isRequired,
     };
     const wrapper = shallow(
       <CustomProvider>
