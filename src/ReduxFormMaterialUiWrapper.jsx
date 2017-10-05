@@ -11,6 +11,7 @@ const render = (props) => {
 
 render.propTypes = {
   id: PropTypes.string,
+  // eslint-disable-next-line react/forbid-prop-types
   input: PropTypes.object.isRequired,
 };
 
