@@ -1,4 +1,5 @@
 import React from 'react';
+import sinon from 'sinon';
 import PropTypes from 'prop-types';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
@@ -11,6 +12,17 @@ import ReduxFormMaterialUiWrapper from '../ReduxFormMaterialUiWrapper';
 
 /* eslint-disable no-undef */
 describe('ReduxFormMaterialUiWrapper', () => {
+
+  // following lines serve to detect bad proptype or any react warning
+
+  /* eslint-disable no-undef, no-console */
+  beforeEach(() => {
+    const stub = sinon.stub(console, 'error');
+    stub.callsFake((warning) => { throw new Error(warning); });
+  });
+  /* eslint-disable no-undef */
+  afterEach(() => { console.error.restore(); });
+
   it('is a wrapper for a reduxForm compatible of the material-ui component', () => {
     const muiTheme = getMuiTheme(
       Object.assign({userAgent: "fakeUserAgent"}, lightBaseTheme)

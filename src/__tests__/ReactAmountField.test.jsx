@@ -13,15 +13,15 @@ function createChange(done, value) {
 
 /* eslint-disable no-undef */
 describe('ReactAmountField', () => {
-  // following lines serve to detect bad proptype
+  // following lines serve to detect bad proptype or any react warning
 
   /* eslint-disable no-undef, no-console */
-  before(() => {
-    sinon.stub(console, 'error', (warning) => { throw new Error(warning); });
+  beforeEach(() => {
+    const stub = sinon.stub(console, 'error');
+    stub.callsFake((warning) => { throw new Error(warning); });
   });
-
   /* eslint-disable no-undef */
-  after(() => { console.error.restore(); });
+  afterEach(() => { console.error.restore(); });
 
   it('accept number value', () => {
     const wrapper = shallow(

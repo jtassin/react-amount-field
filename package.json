@@ -11,7 +11,7 @@
   },
   "bugs": {
     "url": "https://github.com/jtassin/react-amount-field/issues"
-  },  
+  },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^6.1.2",
@@ -48,13 +48,13 @@
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
-    "sinon": "^1.17.6",
+    "sinon": "^4.0.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.1"
   },
   "peerDependencies": {
-    "react": "^15.3.2",
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "react": "^15.3.2"
   },
   "browserify-shim": {
     "react": "global:React"
